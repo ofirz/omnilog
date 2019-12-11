@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['omnilog_31',['OmniLog',['../class_omni_log.html',1,'']]],
-  ['omnilog_2ephp_32',['OmniLog.php',['../_omni_log_8php.html',1,'']]],
-  ['omnilogeventsource_33',['OmniLogEventSource',['../class_omni_log_event_source.html',1,'']]],
-  ['omnilogeventsource_2ephp_34',['OmniLogEventSource.php',['../_omni_log_event_source_8php.html',1,'']]]
+  ['heartbeat_36',['heartbeat',['../interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#aed38ad4eb47e5725f1a5972264a4b85a',1,'com\houzz\omnilog\LoggerI\heartbeat()'],['../classcom_1_1houzz_1_1omnilog_1_1_omni_log.html#aed38ad4eb47e5725f1a5972264a4b85a',1,'com\houzz\omnilog\OmniLog\heartbeat()']]]
 ];

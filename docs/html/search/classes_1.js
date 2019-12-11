@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['routingdescriptor_47',['RoutingDescriptor',['../class_routing_descriptor.html',1,'']]]
+  ['loggeri_52',['LoggerI',['../interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html',1,'com::houzz::omnilog']]]
 ];

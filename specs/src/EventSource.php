@@ -1,8 +1,13 @@
 <?php
 /**
  * The EventSource encapsulates the data associate with the element that triggered the event.
+ * 
+ * @package com.houzz.omnilog
  **/
-class OmniLogEventSource
+
+namespace package com.houzz.omnilog;
+
+class EventSource
 {
     /**
      * The source element type. 

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['resetflows_35',['resetFlows',['../class_omni_log.html#a0eed7ef76a667be2af576277ed18f8e8',1,'OmniLog']]],
-  ['routingdescriptor_36',['RoutingDescriptor',['../class_routing_descriptor.html',1,'']]],
-  ['routingdescriptor_2ephp_37',['RoutingDescriptor.php',['../_routing_descriptor_8php.html',1,'']]]
+  ['loggeri_37',['LoggerI',['../interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html',1,'com::houzz::omnilog']]],
+  ['loggeri_2ephp_38',['LoggerI.php',['../_logger_i_8php.html',1,'']]]
 ];

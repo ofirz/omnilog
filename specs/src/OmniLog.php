@@ -8,9 +8,13 @@
  * send events, while at the same time retaining and using stateful context to 
  * enrich the event with data, such as session id, session channel information, 
  * experience id, flow id, etc.
+ *
+ * @package com.houzz.omnilog
  **/
 
-class OmniLog
+namespace package com.houzz.omnilog;
+
+class OmniLog implements LoggerI
 {
     
     /**@{
@@ -72,7 +76,7 @@ class OmniLog
     /**
      * @param String $eventName From a list of enumerated and agreed-upon list of event names
      * @param Map $eventData An open-ended map of String to String values (the value may be a JSON blob)
-     * @param OmniLogEventSource $eventSource
+     * @param EventSource $eventSource
      * @param Map $extraFields
      * 
      * 
@@ -83,23 +87,23 @@ class OmniLog
      * - invoker = EventSource == null ? `Application` : `User`
      * - location = `Client` on all client-based events
      */
-    private void function sendEvent(String $eventName, Map $eventData, OmniLogEventSource $eventSource, Map $extraFields) {};
+    private void function sendEvent(String $eventName, Map $eventData, EventSource $eventSource, Map $extraFields) {};
 
     /**
      * @param String $eventName From a list of enumerated and agreed-upon list of event names
      * @param Map $eventData An open-ended map of String to String values (the value may be a JSON blob)
-     * @param OmniLogEventSource $eventSource
+     * @param EventSource $eventSource
      * 
      * Send a platform event.
      * 
      * Invokes `sendEvent ($eventName, $eventData, $eventSource, null)`
      */
-    private void function sendPlatformEvent(String $eventName, Map $eventData, OmniLogEventSource $eventSource) {};
+    private void function sendPlatformEvent(String $eventName, Map $eventData, EventSource $eventSource) {};
 
     /**
      * @param String $eventName From a list of enumerated and agreed-upon list of event names
      * @param Map $eventData An open-ended map of String to String values (the value may be a JSON blob)
-     * @param OmniLogEventSource $eventSource
+     * @param EventSource $eventSource
      * 
      * Send a Flow event.
      * 
@@ -110,7 +114,7 @@ class OmniLog
      * 
      * Invokes `sendEvent ($eventName, $eventData, $eventSource, $additionalFields)`
      */
-    private void function sendFlowEvent(String $eventName, Map $eventData, OmniLogEventSource $eventSource) {};
+    private void function sendFlowEvent(String $eventName, Map $eventData, EventSource $eventSource) {};
 
 
 
@@ -119,7 +123,7 @@ class OmniLog
     /**
      * @param RoutingDescriptor $rd A Routing Descriptor
      * @param Id $experienceId The Experience Id, could be null.
-     * @param OmniLogEventSource $eventSource
+     * @param EventSource $eventSource
      *
      * Populate the experience fields (experienceName, experienceArguments, product and productVariant) and the experienceId.
      * If the experience id = null, auto-generates one and populate the $experienceId.
@@ -133,14 +137,14 @@ class OmniLog
     /**
      * @param RoutingDescriptor $rd A Routing Descriptor
      * @param Id $experienceId The Experience Id, could be null.
-     * @param OmniLogEventSource $eventSource
+     * @param EventSource $eventSource
      *
      * Invokes `sendPlatformEvent("Experience Unloaded", null, eventSource)`
      */
     public void function experienceUnloaded (RoutingDescriptor $rd, Id $experienceId, EventSource $eventSource) {}
 
     /**
-     * @param OmniLogEventSource $eventSource
+     * @param EventSource $eventSource
      *
      * Invoked whenever the app started or new Browser Window/tab launched.
      * 
@@ -149,7 +153,7 @@ class OmniLog
     public void function appStarted (EventSource $eventSource) {}
 
     /**
-     * @param OmniLogEventSource $eventSource
+     * @param EventSource $eventSource
      *
      * Invoked whenever the app stopped (killed) or Browser Window/tab closed.
      * 
@@ -203,18 +207,18 @@ class OmniLog
 
     /**
      * @param String $flowName
-     * @param OmniLogEventSource $eventSource
+     * @param EventSource $eventSource
      * 
      * Generate a new userFlowId
      * If the flowNames stack is empty, set userFlowStep to 0
      * Adds the flowName to the $flowNames stack
      * Invokes `sendFlowEvent($flowName + " - Started", null, eventSource)`
      */
-    public void function flowStarted (String $flowName, OmniLogEventSource $eventSource) {}
+    public void function flowStarted (String $flowName, EventSource $eventSource) {}
     
     /**
      * @param String $flowName
-     * @param OmniLogEventSource $eventSource
+     * @param EventSource $eventSource
      * 
      * Generate a new userFlowId.
      * 
@@ -224,12 +228,12 @@ class OmniLog
      * 
      * Invokes `sendFlowEvent($flowName + " - Ended", null, eventSource)`
      */
-    public void function flowEnded (String $flowName, OmniLogEventSource $eventSource) {}
+    public void function flowEnded (String $flowName, EventSource $eventSource) {}
 
     /**
      * @param String $flowName
      * @param String $stepName
-     * @param OmniLogEventSource $eventSource
+     * @param EventSource $eventSource
      * 
      * Invoked whenever a step was impressed.
      * 
@@ -237,12 +241,12 @@ class OmniLog
      * 
      * Invokes `sendFlowEvent($flowName + " - " $flowStep + " Loaded", null, eventSource)`
      */
-    public void function flowStepLoaded (String $flowName, String $stepName, OmniLogEventSource $eventSource) {}
+    public void function flowStepLoaded (String $flowName, String $stepName, EventSource $eventSource) {}
 
     /**
      * @param String $flowName
      * @param String $stepName
-     * @param OmniLogEventSource $eventSource
+     * @param EventSource $eventSource
      * 
      * Invoked whenever a step was impressed.
      * 
@@ -250,26 +254,26 @@ class OmniLog
      * 
      * Invokes `sendFlowEvent($flowName + " - " $flowStep + " Unloaded", null, eventSource)`
      */
-    public void function flowStepUnloaded (String $flowName, String $stepName, OmniLogEventSource $eventSource) {}
+    public void function flowStepUnloaded (String $flowName, String $stepName, EventSource $eventSource) {}
 
     /**
      * @param String $flowName
      * @param String $stepName
      * @param Map $eventData
-     * @param OmniLogEventSource $eventSource
+     * @param EventSource $eventSource
      * 
      * Invoked whenever a step was completed, and sends extra data about the step.
      * 
      * Invokes `sendFlowEvent($flowName + " - " $flowStep + " Completed", $eventData, eventSource)`
      */
-    public void function flowStepCompleted (String $flowName, String $stepName, Map $eventData, OmniLogEventSource $eventSource) {}
+    public void function flowStepCompleted (String $flowName, String $stepName, Map $eventData, EventSource $eventSource) {}
     ///@}
     
 ///@{ \name UI Interaction Events
 
     /**
      * @param String $eventName From a list of Interaction Event Names
-     * @param OmniLogEventSource $eventSource
+     * @param EventSource $eventSource
      * 
      * Send an Interaction event.
      * 
@@ -280,7 +284,7 @@ class OmniLog
      * 
      * Invokes `sendEvent ($eventName, null, $eventSource, $additionalFields)`
      */
-    public void function sendInteractionEvent(String $eventName, OmniLogEventSource $eventSource) {};
+    public void function sendInteractionEvent(String $eventName, EventSource $eventSource) {};
 ///@}
 //
 ///@{ \name Outcome Events

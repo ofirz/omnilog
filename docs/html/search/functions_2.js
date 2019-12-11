@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['flowended_56',['flowEnded',['../class_omni_log.html#a711a8bcc939f62646e450ed45a1a40fe',1,'OmniLog']]],
-  ['flowstarted_57',['flowStarted',['../class_omni_log.html#ac580c0aa0d1ef9b0a67b4cb6f5dadf79',1,'OmniLog']]],
-  ['flowstepcompleted_58',['flowStepCompleted',['../class_omni_log.html#aff3839952bab8e74faaa6be847315ae0',1,'OmniLog']]],
-  ['flowsteploaded_59',['flowStepLoaded',['../class_omni_log.html#ac00208553c13350236a3216476f37cd1',1,'OmniLog']]],
-  ['flowstepunloaded_60',['flowStepUnloaded',['../class_omni_log.html#a6b5dcfdf6ee1be2a9cf34bb7a606e28b',1,'OmniLog']]]
+  ['flowended_68',['flowEnded',['../interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#a48ca32f061ff092e5c8751365dfeb949',1,'com\houzz\omnilog\LoggerI\flowEnded()'],['../classcom_1_1houzz_1_1omnilog_1_1_omni_log.html#a48ca32f061ff092e5c8751365dfeb949',1,'com\houzz\omnilog\OmniLog\flowEnded()']]],
+  ['flowstarted_69',['flowStarted',['../interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#a419c7b84747552e3ac1f0ef618df9697',1,'com\houzz\omnilog\LoggerI\flowStarted()'],['../classcom_1_1houzz_1_1omnilog_1_1_omni_log.html#a419c7b84747552e3ac1f0ef618df9697',1,'com\houzz\omnilog\OmniLog\flowStarted()']]],
+  ['flowstepcompleted_70',['flowStepCompleted',['../interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#a7af3ddd999ea9c043c3792be74f6d725',1,'com\houzz\omnilog\LoggerI\flowStepCompleted()'],['../classcom_1_1houzz_1_1omnilog_1_1_omni_log.html#a7af3ddd999ea9c043c3792be74f6d725',1,'com\houzz\omnilog\OmniLog\flowStepCompleted()']]],
+  ['flowsteploaded_71',['flowStepLoaded',['../interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#ab17139e60153d5364172cc052c00843e',1,'com\houzz\omnilog\LoggerI\flowStepLoaded()'],['../classcom_1_1houzz_1_1omnilog_1_1_omni_log.html#ab17139e60153d5364172cc052c00843e',1,'com\houzz\omnilog\OmniLog\flowStepLoaded()']]],
+  ['flowstepunloaded_72',['flowStepUnloaded',['../interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#a5dc3ef671bffc206cb592269886a71b0',1,'com\houzz\omnilog\LoggerI\flowStepUnloaded()'],['../classcom_1_1houzz_1_1omnilog_1_1_omni_log.html#a5dc3ef671bffc206cb592269886a71b0',1,'com\houzz\omnilog\OmniLog\flowStepUnloaded()']]]
 ];
