@@ -78,8 +78,12 @@ interface LoggerI
     /**
      * @param String $flowName
      * @param EventSource $eventSource
+     * 
+     * Invoked at the end of a flow, indicating the flow was successfully completed. 
+     * 
+     * Aborting or bouncing from a flow does not trigger this event.
      */
-    public void function flowEnded (String $flowName, EventSource $eventSource) {}
+    public void function flowCompleted (String $flowName, EventSource $eventSource) {}
 
     /**
      * @param String $flowName

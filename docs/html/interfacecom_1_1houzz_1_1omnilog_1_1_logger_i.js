@@ -5,7 +5,7 @@ var interfacecom_1_1houzz_1_1omnilog_1_1_logger_i =
     [ "appStopped", "interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#a1178cf0d7401212030b7ad4a8ca19816", null ],
     [ "experienceLoaded", "interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#a862e17753a60fc1c9052b0ee1feea938", null ],
     [ "experienceUnloaded", "interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#ae6f4af19fa1a547c6a86056807a37864", null ],
-    [ "flowEnded", "interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#a48ca32f061ff092e5c8751365dfeb949", null ],
+    [ "flowCompleted", "interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#a1f7e8b1f31605d727166310630ce4d85", null ],
     [ "flowStarted", "interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#a419c7b84747552e3ac1f0ef618df9697", null ],
     [ "flowStepCompleted", "interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#a7af3ddd999ea9c043c3792be74f6d725", null ],
     [ "flowStepLoaded", "interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#ab17139e60153d5364172cc052c00843e", null ],

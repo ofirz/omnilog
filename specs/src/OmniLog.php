@@ -220,15 +220,13 @@ class OmniLog implements LoggerI
      * @param String $flowName
      * @param EventSource $eventSource
      * 
-     * Generate a new userFlowId.
-     * 
      * If the flowNames stack is empty, set userFlowStep to 0.
      * 
      * Removes the flowName from the $flowNames stack.
      * 
      * Invokes `sendFlowEvent($flowName + " - Ended", null, eventSource)`
      */
-    public void function flowEnded (String $flowName, EventSource $eventSource) {}
+    public void function flowCompleted (String $flowName, EventSource $eventSource) {}
 
     /**
      * @param String $flowName

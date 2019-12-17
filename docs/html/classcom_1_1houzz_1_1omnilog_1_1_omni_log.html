@@ -128,8 +128,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a0eed7ef76a667be2af576277ed18f8e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a419c7b84747552e3ac1f0ef618df9697"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_omni_log.html#a419c7b84747552e3ac1f0ef618df9697">flowStarted</a> (String $flowName, <a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a> $eventSource)</td></tr>
 <tr class="separator:a419c7b84747552e3ac1f0ef618df9697"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48ca32f061ff092e5c8751365dfeb949"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_omni_log.html#a48ca32f061ff092e5c8751365dfeb949">flowEnded</a> (String $flowName, <a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a> $eventSource)</td></tr>
-<tr class="separator:a48ca32f061ff092e5c8751365dfeb949"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f7e8b1f31605d727166310630ce4d85"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_omni_log.html#a1f7e8b1f31605d727166310630ce4d85">flowCompleted</a> (String $flowName, <a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a> $eventSource)</td></tr>
+<tr class="separator:a1f7e8b1f31605d727166310630ce4d85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab17139e60153d5364172cc052c00843e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_omni_log.html#ab17139e60153d5364172cc052c00843e">flowStepLoaded</a> (String $flowName, String $stepName, <a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a> $eventSource)</td></tr>
 <tr class="separator:ab17139e60153d5364172cc052c00843e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5dc3ef671bffc206cb592269886a71b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_omni_log.html#a5dc3ef671bffc206cb592269886a71b0">flowStepUnloaded</a> (String $flowName, String $stepName, <a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a> $eventSource)</td></tr>
@@ -365,14 +365,14 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a48ca32f061ff092e5c8751365dfeb949"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a48ca32f061ff092e5c8751365dfeb949">&#9670;&nbsp;</a></span>flowEnded()</h2>
+<a id="a1f7e8b1f31605d727166310630ce4d85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f7e8b1f31605d727166310630ce4d85">&#9670;&nbsp;</a></span>flowCompleted()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void flowEnded </td>
+          <td class="memname">void flowCompleted </td>
           <td>(</td>
           <td class="paramtype">String&#160;</td>
           <td class="paramname"><em>$flowName</em>, </td>
@@ -393,15 +393,14 @@ Private Attributes</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">String</td><td class="paramname">$flowName</td><td></td></tr>
-    <tr><td class="paramtype"><a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a></td><td class="paramname">$eventSource</td><td>Generate a new userFlowId.</td></tr>
+    <tr><td class="paramtype"><a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a></td><td class="paramname">$eventSource</td><td>If the flowNames stack is empty, set userFlowStep to 0.</td></tr>
   </table>
   </dd>
 </dl>
-<p>If the flowNames stack is empty, set userFlowStep to 0.</p>
 <p>Removes the flowName from the $flowNames stack.</p>
 <p>Invokes <code>sendFlowEvent($flowName + " - Ended", null, eventSource)</code> </p>
 
-<p>Implements <a class="el" href="interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#a48ca32f061ff092e5c8751365dfeb949">LoggerI</a>.</p>
+<p>Implements <a class="el" href="interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#a1f7e8b1f31605d727166310630ce4d85">LoggerI</a>.</p>
 
 </div>
 </div>
