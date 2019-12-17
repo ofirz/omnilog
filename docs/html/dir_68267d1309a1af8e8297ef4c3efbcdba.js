@@ -10,6 +10,6 @@ var dir_68267d1309a1af8e8297ef4c3efbcdba =
       [ "OmniLog", "classcom_1_1houzz_1_1omnilog_1_1_omni_log.html", "classcom_1_1houzz_1_1omnilog_1_1_omni_log" ]
     ] ],
     [ "RoutingDescriptor.php", "_routing_descriptor_8php.html", [
-      [ "RoutingDescriptor", "classcom_1_1houzz_1_1common__router_1_1_routing_descriptor.html", null ]
+      [ "RoutingDescriptor", "classcom_1_1houzz_1_1common__router_1_1_routing_descriptor.html", "classcom_1_1houzz_1_1common__router_1_1_routing_descriptor" ]
     ] ]
 ];
