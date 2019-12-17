@@ -12,18 +12,18 @@ interface LoggerI
 ///@{ \name Platform Events
 
     /**
-     * @param RoutingDescriptor $rd A Routing Descriptor
+     * @param com.houzz.common_router.RoutingDescriptor $rd A Routing Descriptor
      * @param Id $experienceId The Experience Id, could be null.
      * @param EventSource $eventSource
      */    
-    public void function experienceLoaded (RoutingDescriptor $rd, Id $experienceId, EventSource $eventSource);
+    public void function experienceLoaded (com.houzz.common_router.RoutingDescriptor $rd, Id $experienceId, EventSource $eventSource);
 
     /**
-     * @param RoutingDescriptor $rd A Routing Descriptor
+     * @param com.houzz.common_router.RoutingDescriptor $rd A Routing Descriptor
      * @param Id $experienceId The Experience Id, could be null.
      * @param EventSource $eventSource
      */
-    public void function experienceUnloaded (RoutingDescriptor $rd, Id $experienceId, EventSource $eventSource);
+    public void function experienceUnloaded (com.houzz.common_router.RoutingDescriptor $rd, Id $experienceId, EventSource $eventSource);
 
     /**
      * @param EventSource $eventSource
