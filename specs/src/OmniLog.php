@@ -94,6 +94,7 @@ class OmniLog implements LoggerI
      * @param Map $eventData An open-ended map of String to String values (the value may be a JSON blob)
      * @param EventSource $eventSource
      * 
+     * 
      * Send a platform event.
      * 
      * Invokes `sendEvent ($eventName, $eventData, $eventSource, null)`
@@ -104,6 +105,7 @@ class OmniLog implements LoggerI
      * @param String $eventName From a list of enumerated and agreed-upon list of event names
      * @param Map $eventData An open-ended map of String to String values (the value may be a JSON blob)
      * @param EventSource $eventSource
+     * 
      * 
      * Send a Flow event.
      * 
@@ -121,10 +123,11 @@ class OmniLog implements LoggerI
 ///@{ \name Platform Events
 
     /**
-     * @param com.houzz.common_router.RoutingDescriptor $rd A Routing Descriptor
+     * @param RoutingDescriptor $rd A Routing Descriptor
      * @param Id $experienceId The Experience Id, could be null.
      * @param EventSource $eventSource
      *
+     * 
      * Populate the experience fields (experienceName, experienceArguments, product and productVariant) and the experienceId.
      * If the experience id = null, auto-generates one and populate the $experienceId.
      * If the $eventSource has an experienceId, use it to populate the $referrerExperienceId
@@ -135,10 +138,11 @@ class OmniLog implements LoggerI
     public void function experienceLoaded (com.houzz.common_router.RoutingDescriptor $rd, Id $experienceId, EventSource $eventSource) {}
 
     /**
-     * @param com.houzz.common_router.RoutingDescriptor $rd A Routing Descriptor
+     * @param RoutingDescriptor $rd A Routing Descriptor
      * @param Id $experienceId The Experience Id, could be null.
      * @param EventSource $eventSource
      *
+     * 
      * Invokes `sendPlatformEvent("Experience Unloaded", null, eventSource)`
      */
     public void function experienceUnloaded (com.houzz.common_router.RoutingDescriptor $rd, Id $experienceId, EventSource $eventSource) {}
@@ -146,6 +150,7 @@ class OmniLog implements LoggerI
     /**
      * @param EventSource $eventSource
      *
+     * 
      * Invoked whenever the app started or new Browser Window/tab launched.
      * 
      * Invokes `sendPlatformEvent("App Started", null, eventSource)`
@@ -155,6 +160,7 @@ class OmniLog implements LoggerI
     /**
      * @param EventSource $eventSource
      *
+     * 
      * Invoked whenever the app stopped (killed) or Browser Window/tab closed.
      * 
      * Invokes `sendPlatformEvent("App Stopped", null, eventSource)`
@@ -209,6 +215,7 @@ class OmniLog implements LoggerI
      * @param String $flowName
      * @param EventSource $eventSource
      * 
+     * 
      * Generate a new userFlowId
      * If the flowNames stack is empty, set userFlowStep to 0
      * Adds the flowName to the $flowNames stack
@@ -219,6 +226,7 @@ class OmniLog implements LoggerI
     /**
      * @param String $flowName
      * @param EventSource $eventSource
+     * 
      * 
      * If the flowNames stack is empty, set userFlowStep to 0.
      * 
@@ -233,6 +241,7 @@ class OmniLog implements LoggerI
      * @param String $stepName
      * @param EventSource $eventSource
      * 
+     * 
      * Invoked whenever a step was impressed.
      * 
      * Increases the internal flowStepId.
@@ -245,6 +254,7 @@ class OmniLog implements LoggerI
      * @param String $flowName
      * @param String $stepName
      * @param EventSource $eventSource
+     * 
      * 
      * Invoked whenever a step was impressed.
      * 
@@ -260,6 +270,7 @@ class OmniLog implements LoggerI
      * @param Map $eventData
      * @param EventSource $eventSource
      * 
+     * 
      * Invoked whenever a step was completed, and sends extra data about the step.
      * 
      * Invokes `sendFlowEvent($flowName + " - " $flowStep + " Completed", $eventData, eventSource)`
@@ -272,6 +283,7 @@ class OmniLog implements LoggerI
     /**
      * @param String $eventName From a list of Interaction Event Names
      * @param EventSource $eventSource
+     * 
      * 
      * Send an Interaction event.
      * 
@@ -292,6 +304,7 @@ class OmniLog implements LoggerI
      * @param Map $eventData An open-ended map of String to String values (the value may be a JSON blob)
      * @param int $errorCode Send `0` on success, otherwise include a predefined error code number
      * @param String $errorMessage Error message, null when successful.
+     * 
      * 
      * Send an Outcome event.
      * 

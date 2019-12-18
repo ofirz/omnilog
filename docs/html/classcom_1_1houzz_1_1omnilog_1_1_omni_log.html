@@ -240,10 +240,11 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramtype"><a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a></td><td class="paramname">$eventSource</td><td>Invoked whenever the app started or new Browser Window/tab launched.</td></tr>
+    <tr><td class="paramtype"><a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a></td><td class="paramname">$eventSource</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<p>Invoked whenever the app started or new Browser Window/tab launched.</p>
 <p>Invokes <code>sendPlatformEvent("App Started", null, eventSource)</code> </p>
 
 <p>Implements <a class="el" href="interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#a9c368279d518e4c04916994a4e0ad1a0">LoggerI</a>.</p>
@@ -267,10 +268,11 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramtype"><a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a></td><td class="paramname">$eventSource</td><td>Invoked whenever the app stopped (killed) or Browser Window/tab closed.</td></tr>
+    <tr><td class="paramtype"><a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a></td><td class="paramname">$eventSource</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<p>Invoked whenever the app stopped (killed) or Browser Window/tab closed.</p>
 <p>Invokes <code>sendPlatformEvent("App Stopped", null, eventSource)</code> </p>
 
 <p>Implements <a class="el" href="interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#a1178cf0d7401212030b7ad4a8ca19816">LoggerI</a>.</p>
@@ -310,12 +312,13 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramtype"></td><td class="paramname"><a class="el" href="classcom_1_1houzz_1_1common__router_1_1_routing_descriptor.html">com.houzz.common_router.RoutingDescriptor</a></td><td>$rd A Routing Descriptor </td></tr>
+    <tr><td class="paramtype">RoutingDescriptor</td><td class="paramname">$rd</td><td>A Routing Descriptor </td></tr>
     <tr><td class="paramtype">Id</td><td class="paramname">$experienceId</td><td>The Experience Id, could be null. </td></tr>
-    <tr><td class="paramtype"><a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a></td><td class="paramname">$eventSource</td><td>Populate the experience fields (experienceName, experienceArguments, product and productVariant) and the experienceId. If the experience id = null, auto-generates one and populate the $experienceId. If the $eventSource has an experienceId, use it to populate the $referrerExperienceId Invokes <code>resetUserFlow()</code> Invokes <code>sendPlatformEvent("Experience Loaded", null, eventSource)</code> </td></tr>
+    <tr><td class="paramtype"><a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a></td><td class="paramname">$eventSource</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<p>Populate the experience fields (experienceName, experienceArguments, product and productVariant) and the experienceId. If the experience id = null, auto-generates one and populate the $experienceId. If the $eventSource has an experienceId, use it to populate the $referrerExperienceId Invokes <code>resetUserFlow()</code> Invokes <code>sendPlatformEvent("Experience Loaded", null, eventSource)</code> </p>
 
 <p>Implements <a class="el" href="interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#a862e17753a60fc1c9052b0ee1feea938">LoggerI</a>.</p>
 
@@ -354,12 +357,13 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramtype"></td><td class="paramname"><a class="el" href="classcom_1_1houzz_1_1common__router_1_1_routing_descriptor.html">com.houzz.common_router.RoutingDescriptor</a></td><td>$rd A Routing Descriptor </td></tr>
+    <tr><td class="paramtype">RoutingDescriptor</td><td class="paramname">$rd</td><td>A Routing Descriptor </td></tr>
     <tr><td class="paramtype">Id</td><td class="paramname">$experienceId</td><td>The Experience Id, could be null. </td></tr>
-    <tr><td class="paramtype"><a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a></td><td class="paramname">$eventSource</td><td>Invokes <code>sendPlatformEvent("Experience Unloaded", null, eventSource)</code> </td></tr>
+    <tr><td class="paramtype"><a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a></td><td class="paramname">$eventSource</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<p>Invokes <code>sendPlatformEvent("Experience Unloaded", null, eventSource)</code> </p>
 
 <p>Implements <a class="el" href="interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#ae6f4af19fa1a547c6a86056807a37864">LoggerI</a>.</p>
 
@@ -393,10 +397,11 @@ Private Attributes</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">String</td><td class="paramname">$flowName</td><td></td></tr>
-    <tr><td class="paramtype"><a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a></td><td class="paramname">$eventSource</td><td>If the flowNames stack is empty, set userFlowStep to 0.</td></tr>
+    <tr><td class="paramtype"><a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a></td><td class="paramname">$eventSource</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<p>If the flowNames stack is empty, set userFlowStep to 0.</p>
 <p>Removes the flowName from the $flowNames stack.</p>
 <p>Invokes <code>sendFlowEvent($flowName + " - Ended", null, eventSource)</code> </p>
 
@@ -432,10 +437,11 @@ Private Attributes</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">String</td><td class="paramname">$flowName</td><td></td></tr>
-    <tr><td class="paramtype"><a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a></td><td class="paramname">$eventSource</td><td>Generate a new userFlowId If the flowNames stack is empty, set userFlowStep to 0 Adds the flowName to the $flowNames stack Invokes <code>sendFlowEvent($flowName + " - Started", null, eventSource)</code> </td></tr>
+    <tr><td class="paramtype"><a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a></td><td class="paramname">$eventSource</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<p>Generate a new userFlowId If the flowNames stack is empty, set userFlowStep to 0 Adds the flowName to the $flowNames stack Invokes <code>sendFlowEvent($flowName + " - Started", null, eventSource)</code> </p>
 
 <p>Implements <a class="el" href="interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#a419c7b84747552e3ac1f0ef618df9697">LoggerI</a>.</p>
 
@@ -483,10 +489,11 @@ Private Attributes</h2></td></tr>
     <tr><td class="paramtype">String</td><td class="paramname">$flowName</td><td></td></tr>
     <tr><td class="paramtype">String</td><td class="paramname">$stepName</td><td></td></tr>
     <tr><td class="paramtype">Map</td><td class="paramname">$eventData</td><td></td></tr>
-    <tr><td class="paramtype"><a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a></td><td class="paramname">$eventSource</td><td>Invoked whenever a step was completed, and sends extra data about the step.</td></tr>
+    <tr><td class="paramtype"><a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a></td><td class="paramname">$eventSource</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<p>Invoked whenever a step was completed, and sends extra data about the step.</p>
 <p>Invokes <code>sendFlowEvent($flowName + " - " $flowStep + " Completed", $eventData, eventSource)</code> </p>
 
 <p>Implements <a class="el" href="interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#a7af3ddd999ea9c043c3792be74f6d725">LoggerI</a>.</p>
@@ -528,10 +535,11 @@ Private Attributes</h2></td></tr>
   <table class="params">
     <tr><td class="paramtype">String</td><td class="paramname">$flowName</td><td></td></tr>
     <tr><td class="paramtype">String</td><td class="paramname">$stepName</td><td></td></tr>
-    <tr><td class="paramtype"><a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a></td><td class="paramname">$eventSource</td><td>Invoked whenever a step was impressed.</td></tr>
+    <tr><td class="paramtype"><a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a></td><td class="paramname">$eventSource</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<p>Invoked whenever a step was impressed.</p>
 <p>Increases the internal flowStepId.</p>
 <p>Invokes <code>sendFlowEvent($flowName + " - " $flowStep + " Loaded", null, eventSource)</code> </p>
 
@@ -574,10 +582,11 @@ Private Attributes</h2></td></tr>
   <table class="params">
     <tr><td class="paramtype">String</td><td class="paramname">$flowName</td><td></td></tr>
     <tr><td class="paramtype">String</td><td class="paramname">$stepName</td><td></td></tr>
-    <tr><td class="paramtype"><a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a></td><td class="paramname">$eventSource</td><td>Invoked whenever a step was impressed.</td></tr>
+    <tr><td class="paramtype"><a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a></td><td class="paramname">$eventSource</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<p>Invoked whenever a step was impressed.</p>
 <p>Increases the internal flowStepId.</p>
 <p>Invokes <code>sendFlowEvent($flowName + " - " $flowStep + " Unloaded", null, eventSource)</code> </p>
 
@@ -733,10 +742,11 @@ Private Attributes</h2></td></tr>
   <table class="params">
     <tr><td class="paramtype">String</td><td class="paramname">$eventName</td><td>From a list of enumerated and agreed-upon list of event names </td></tr>
     <tr><td class="paramtype">Map</td><td class="paramname">$eventData</td><td>An open-ended map of String to String values (the value may be a JSON blob) </td></tr>
-    <tr><td class="paramtype"><a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a></td><td class="paramname">$eventSource</td><td>Send a Flow event.</td></tr>
+    <tr><td class="paramtype"><a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a></td><td class="paramname">$eventSource</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<p>Send a Flow event.</p>
 <p>Incorporate the following into the $additionalFields argument:</p><ul>
 <li>$flowName</li>
 <li>$flowId</li>
@@ -774,10 +784,11 @@ Private Attributes</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">String</td><td class="paramname">$eventName</td><td>From a list of Interaction Event Names </td></tr>
-    <tr><td class="paramtype"><a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a></td><td class="paramname">$eventSource</td><td>Send an Interaction event.</td></tr>
+    <tr><td class="paramtype"><a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a></td><td class="paramname">$eventSource</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<p>Send an Interaction event.</p>
 <p>Incorporate the following into the $additionalFields argument:</p><ul>
 <li>$flowName</li>
 <li>$flowId</li>
@@ -885,10 +896,11 @@ Private Attributes</h2></td></tr>
   <table class="params">
     <tr><td class="paramtype">String</td><td class="paramname">$eventName</td><td>From a list of enumerated and agreed-upon list of event names </td></tr>
     <tr><td class="paramtype">Map</td><td class="paramname">$eventData</td><td>An open-ended map of String to String values (the value may be a JSON blob) </td></tr>
-    <tr><td class="paramtype"><a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a></td><td class="paramname">$eventSource</td><td>Send a platform event.</td></tr>
+    <tr><td class="paramtype"><a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a></td><td class="paramname">$eventSource</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<p>Send a platform event.</p>
 <p>Invokes <code>sendEvent ($eventName, $eventData, $eventSource, null)</code> </p>
 
 </div>
