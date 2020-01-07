@@ -75,7 +75,7 @@ class OmniLog implements LoggerI
     
     /**
      * @param String $eventName From a list of enumerated and agreed-upon list of event names
-     * @param Map $eventData An open-ended map of String to String values (the value may be a JSON blob)
+     * @param Map $eventDetails An open-ended map of String to String values (the value may be a JSON blob)
      * @param EventSource $eventSource
      * @param Map $extraFields
      * 
@@ -87,23 +87,23 @@ class OmniLog implements LoggerI
      * - invoker = EventSource == null ? `Application` : `User`
      * - location = `Client` on all client-based events
      */
-    private void function sendEvent(String $eventName, Map $eventData, EventSource $eventSource, Map $extraFields) {};
+    private void function sendEvent(String $eventName, Map $eventDetails, EventSource $eventSource, Map $extraFields) {};
 
     /**
      * @param String $eventName From a list of enumerated and agreed-upon list of event names
-     * @param Map $eventData An open-ended map of String to String values (the value may be a JSON blob)
+     * @param Map $eventDetails An open-ended map of String to String values (the value may be a JSON blob)
      * @param EventSource $eventSource
      * 
      * 
      * Send a platform event.
      * 
-     * Invokes `sendEvent ($eventName, $eventData, $eventSource, null)`
+     * Invokes `sendEvent ($eventName, $eventDetails, $eventSource, null)`
      */
-    private void function sendPlatformEvent(String $eventName, Map $eventData, EventSource $eventSource) {};
+    private void function sendPlatformEvent(String $eventName, Map $eventDetails, EventSource $eventSource) {};
 
     /**
      * @param String $eventName From a list of enumerated and agreed-upon list of event names
-     * @param Map $eventData An open-ended map of String to String values (the value may be a JSON blob)
+     * @param Map $eventDetails An open-ended map of String to String values (the value may be a JSON blob)
      * @param EventSource $eventSource
      * 
      * 
@@ -114,9 +114,9 @@ class OmniLog implements LoggerI
      * - $flowId
      * - $flowStep
      * 
-     * Invokes `sendEvent ($eventName, $eventData, $eventSource, $additionalFields)`
+     * Invokes `sendEvent ($eventName, $eventDetails, $eventSource, $additionalFields)`
      */
-    private void function sendFlowEvent(String $eventName, Map $eventData, EventSource $eventSource) {};
+    private void function sendFlowEvent(String $eventName, Map $eventDetails, EventSource $eventSource) {};
 
 
 
@@ -225,6 +225,7 @@ class OmniLog implements LoggerI
     
     /**
      * @param String $flowName
+     * @param Map $eventDetails
      * @param EventSource $eventSource
      * 
      * 
@@ -234,11 +235,12 @@ class OmniLog implements LoggerI
      * 
      * Invokes `sendFlowEvent($flowName + " - Ended", null, eventSource)`
      */
-    public void function flowCompleted (String $flowName, EventSource $eventSource) {}
+    public void function flowCompleted (String $flowName, Map $eventDetails, EventSource $eventSource) {}
 
     /**
      * @param String $flowName
      * @param String $stepName
+     * @param Map $eventDetails
      * @param EventSource $eventSource
      * 
      * 
@@ -248,11 +250,12 @@ class OmniLog implements LoggerI
      * 
      * Invokes `sendFlowEvent($flowName + " - " $flowStep + " Loaded", null, eventSource)`
      */
-    public void function flowStepLoaded (String $flowName, String $stepName, EventSource $eventSource) {}
+    public void function flowStepLoaded (String $flowName, String $stepName, Map $eventDetails, EventSource $eventSource) {}
 
     /**
      * @param String $flowName
      * @param String $stepName
+     * @param Map $eventDetails
      * @param EventSource $eventSource
      * 
      * 
@@ -262,20 +265,20 @@ class OmniLog implements LoggerI
      * 
      * Invokes `sendFlowEvent($flowName + " - " $flowStep + " Unloaded", null, eventSource)`
      */
-    public void function flowStepUnloaded (String $flowName, String $stepName, EventSource $eventSource) {}
+    public void function flowStepUnloaded (String $flowName, String $stepName, Map $eventDetails, EventSource $eventSource) {}
 
     /**
      * @param String $flowName
      * @param String $stepName
-     * @param Map $eventData
+     * @param Map $eventDetails
      * @param EventSource $eventSource
      * 
      * 
      * Invoked whenever a step was completed, and sends extra data about the step.
      * 
-     * Invokes `sendFlowEvent($flowName + " - " $flowStep + " Completed", $eventData, eventSource)`
+     * Invokes `sendFlowEvent($flowName + " - " $flowStep + " Completed", $eventDetails, eventSource)`
      */
-    public void function flowStepCompleted (String $flowName, String $stepName, Map $eventData, EventSource $eventSource) {}
+    public void function flowStepCompleted (String $flowName, String $stepName, Map $eventDetails, EventSource $eventSource) {}
     ///@}
     
 ///@{ \name UI Interaction Events
@@ -301,7 +304,7 @@ class OmniLog implements LoggerI
 
      /**
      * @param String $eventName From a list of Outcome Event Names
-     * @param Map $eventData An open-ended map of String to String values (the value may be a JSON blob)
+     * @param Map $eventDetails An open-ended map of String to String values (the value may be a JSON blob)
      * @param int $errorCode Send `0` on success, otherwise include a predefined error code number
      * @param String $errorMessage Error message, null when successful.
      * 
@@ -310,7 +313,7 @@ class OmniLog implements LoggerI
      * 
      * Invokes `sendEvent ($eventName, null, $eventSource, $additionalFields)`
      */  
-    public void function sendOutcomeEvent (String $eventName, Map $eventData, int $errorCode, String $errorMessage) {}
+    public void function sendOutcomeEvent (String $eventName, Map $eventDetails, int $errorCode, String $errorMessage) {}
 ///@}
 
     }

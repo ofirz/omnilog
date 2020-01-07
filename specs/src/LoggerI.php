@@ -65,53 +65,57 @@ interface LoggerI
     /**
      * Invoked whenever a new experience is loaded, or explicitly by the developer when a flow is dismissed.
      */
-    public void function resetFlows() {}
+    public void function resetFlows();
 
     /**
      * @param String $flowName
+     * @param Map $eventDetails
      * @param EventSource $eventSource
      * 
      * Invoked at the start of a flow, immediately after the user interacted with a UI element.
      */
-    public void function flowStarted (String $flowName, EventSource $eventSource) {}
+    public void function flowStarted (String $flowName, Map $eventDetails, EventSource $eventSource) ;
     
     /**
      * @param String $flowName
+     * @param Map $eventDetails
      * @param EventSource $eventSource
      * 
      * Invoked at the end of a flow, indicating the flow was successfully completed. 
      * 
      * Aborting or bouncing from a flow does not trigger this event.
      */
-    public void function flowCompleted (String $flowName, EventSource $eventSource) {}
+    public void function flowCompleted (String $flowName, Map $eventDetails, EventSource $eventSource) ;
 
     /**
      * @param String $flowName
      * @param String $stepName
+     * @param Map $eventDetails
      * @param EventSource $eventSource
      * 
      * Invoked whenever a step was impressed.
      */
-    public void function flowStepLoaded (String $flowName, String $stepName, EventSource $eventSource) {}
+    public void function flowStepLoaded (String $flowName, String $stepName, Map $eventDetails, EventSource $eventSource) ;
 
     /**
      * @param String $flowName
      * @param String $stepName
+     * @param Map $eventDetails
      * @param EventSource $eventSource
      * 
      * Invoked whenever a step was unloaded.
      */
-    public void function flowStepUnloaded (String $flowName, String $stepName, EventSource $eventSource) {}
+    public void function flowStepUnloaded (String $flowName, String $stepName, Map $eventDetails, EventSource $eventSource) ;
 
     /**
      * @param String $flowName
      * @param String $stepName
-     * @param Map $eventData
+     * @param Map $eventDetails
      * @param EventSource $eventSource
      * 
      * Invoked whenever a step was completed, and sends extra data about the step, such as the information collected in the inputs.
      */
-    public void function flowStepCompleted (String $flowName, String $stepName, Map $eventData, EventSource $eventSource) {}
+    public void function flowStepCompleted (String $flowName, String $stepName, Map $eventDetails, EventSource $eventSource) ;
     ///@}
     
 ///@{ \name UI Interaction Events
@@ -122,20 +126,20 @@ interface LoggerI
      * 
      * Sends an Interaction event.
      */
-    public void function sendInteractionEvent(String $eventName, EventSource $eventSource) {};
+    public void function sendInteractionEvent(String $eventName, EventSource $eventSource) ;
 ///@}
 //
 ///@{ \name Outcome Events
 
      /**
      * @param String $eventName From a list of Outcome Event Names
-     * @param Map $eventData An open-ended map of String to String values (the value may be a JSON blob)
+     * @param Map $eventDetails An open-ended map of String to String values (the value may be a JSON blob)
      * @param int $errorCode Send `0` on success, otherwise include a predefined error code number
      * @param String $errorMessage Error message, null when successful.
      * 
      * Sends an Outcome event.
      */  
-    public void function sendOutcomeEvent (String $eventName, Map $eventData, int $errorCode, String $errorMessage) {}
+    public void function sendOutcomeEvent (String $eventName, Map $eventDetails, int $errorCode, String $errorMessage) ;
 ///@}
 
     }
