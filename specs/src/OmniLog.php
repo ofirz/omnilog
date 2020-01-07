@@ -213,6 +213,7 @@ class OmniLog implements LoggerI
 
     /**
      * @param String $flowName
+     * @param Map $eventDetails
      * @param EventSource $eventSource
      * 
      * 
@@ -221,7 +222,7 @@ class OmniLog implements LoggerI
      * Adds the flowName to the $flowNames stack
      * Invokes `sendFlowEvent($flowName + " - Started", null, eventSource)`
      */
-    public void function flowStarted (String $flowName, EventSource $eventSource) {}
+    public void function flowStarted (String $flowName, Map $eventDetails, EventSource $eventSource) {}
     
     /**
      * @param String $flowName
