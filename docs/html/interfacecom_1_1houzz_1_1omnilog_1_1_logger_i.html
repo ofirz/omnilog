@@ -28,7 +28,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="omnilog-tiny.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="omnilog.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">OmniLog
    &#160;<span id="projectnumber">0.1</span>
@@ -128,6 +128,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a26a0de26db6da8acf77e3e1585c7ea63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a71ab363145796920888937facc68fef9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#a71ab363145796920888937facc68fef9">flowCompleted</a> (String $flowName, Map $eventDetails, <a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a> $eventSource)</td></tr>
 <tr class="separator:a71ab363145796920888937facc68fef9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac33fec744a396408f74bc0d4dc7a03ed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#ac33fec744a396408f74bc0d4dc7a03ed">flowAbandoned</a> ($flowName)</td></tr>
+<tr class="separator:ac33fec744a396408f74bc0d4dc7a03ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ff5647a1cdef505bf0dd3a9432bf6db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#a6ff5647a1cdef505bf0dd3a9432bf6db">flowStepLoaded</a> (String $flowName, String $stepName, Map $eventDetails, <a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a> $eventSource)</td></tr>
 <tr class="separator:a6ff5647a1cdef505bf0dd3a9432bf6db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a96b242a4471ec0e1e070045eafe9ece7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#a96b242a4471ec0e1e070045eafe9ece7">flowStepUnloaded</a> (String $flowName, String $stepName, Map $eventDetails, <a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a> $eventSource)</td></tr>
@@ -262,10 +264,11 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Call experienceLoaded whenever an Experience is loaded (rendered) on the client device and the user can see it.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">RoutingDescriptor</td><td class="paramname">$rd</td><td>A Routing Descriptor </td></tr>
-    <tr><td class="paramtype">Id</td><td class="paramname">$experienceId</td><td>The Experience Id, could be null. </td></tr>
+    <tr><td class="paramtype">Id</td><td class="paramname">$experienceId</td><td>The Experience Id, null by default. This function would generate and Experience Id if one is not provided. It may be useful to pass an Experience Id if one was previously determined and the behavior requires re-loading that same experience. </td></tr>
     <tr><td class="paramtype"><a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a></td><td class="paramname">$eventSource</td><td></td></tr>
   </table>
   </dd>
@@ -306,6 +309,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Call experienceLoaded whenever an Experience is removed from the client device to make way for the next experience.</p>
+<p>Calling this function is optional, and is meant to serve two purposes: recording the time spent on the experience, and which element on the page was engaged, thus unloading it.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">RoutingDescriptor</td><td class="paramname">$rd</td><td>A Routing Descriptor </td></tr>
@@ -316,6 +321,25 @@ Public Member Functions</h2></td></tr>
 </dl>
 
 <p>Implemented in <a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_omni_log.html#ae6f4af19fa1a547c6a86056807a37864">OmniLog</a>.</p>
+
+</div>
+</div>
+<a id="ac33fec744a396408f74bc0d4dc7a03ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac33fec744a396408f74bc0d4dc7a03ed">&#9670;&nbsp;</a></span>flowAbandoned()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void flowAbandoned </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>$flowName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Call this whenever the most recent flow is abandoned. This call doesn't fire an actual event; it is only for internal bookkeeping of the nested flows. </p>
 
 </div>
 </div>
@@ -350,15 +374,16 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Call this at the end of a Flow, when the flow is positively concluded and completed and there are no more activities (either UI interactions, Ajax/Restful calls or other events) related to the flow.</p>
+<p>Aborting or bouncing back from a flow does not trigger this event. Use flowAbandoned instead.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">String</td><td class="paramname">$flowName</td><td></td></tr>
     <tr><td class="paramtype">Map</td><td class="paramname">$eventDetails</td><td></td></tr>
-    <tr><td class="paramtype"><a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a></td><td class="paramname">$eventSource</td><td>Invoked at the end of a flow, indicating the flow was successfully completed.</td></tr>
+    <tr><td class="paramtype"><a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a></td><td class="paramname">$eventSource</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<p>Aborting or bouncing from a flow does not trigger this event. </p>
 
 <p>Implemented in <a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_omni_log.html#a71ab363145796920888937facc68fef9">OmniLog</a>.</p>
 
@@ -395,11 +420,13 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Call this as soon as the user instantiates the flow, e.g. when they click the button to open a dialog/screen, or if they engage by focusing on a popup.</p>
+<p>This event is useful for sending extra flow-related data in the eventDetails.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">String</td><td class="paramname">$flowName</td><td></td></tr>
     <tr><td class="paramtype">Map</td><td class="paramname">$eventDetails</td><td></td></tr>
-    <tr><td class="paramtype"><a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a></td><td class="paramname">$eventSource</td><td>Invoked at the start of a flow, immediately after the user interacted with a UI element. </td></tr>
+    <tr><td class="paramtype"><a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a></td><td class="paramname">$eventSource</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -445,12 +472,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Call this when the user positively completes filling up the inputs of the current step, and intentionally wishes to move forward.</p>
+<p>Going back to a previous step or to dismiss the flow entirely is NOT a positive completion of the step.</p>
+<p>This event is useful for sending extra flow-related data in the eventDetails.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">String</td><td class="paramname">$flowName</td><td></td></tr>
     <tr><td class="paramtype">String</td><td class="paramname">$stepName</td><td></td></tr>
     <tr><td class="paramtype">Map</td><td class="paramname">$eventDetails</td><td></td></tr>
-    <tr><td class="paramtype"><a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a></td><td class="paramname">$eventSource</td><td>Invoked whenever a step was completed, and sends extra data about the step, such as the information collected in the inputs. </td></tr>
+    <tr><td class="paramtype"><a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a></td><td class="paramname">$eventSource</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -496,12 +526,13 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Optional event. Call this whenever a new step is loaded (e.g. shows up), preferably without flow-related data in the eventDetails.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">String</td><td class="paramname">$flowName</td><td></td></tr>
     <tr><td class="paramtype">String</td><td class="paramname">$stepName</td><td></td></tr>
     <tr><td class="paramtype">Map</td><td class="paramname">$eventDetails</td><td></td></tr>
-    <tr><td class="paramtype"><a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a></td><td class="paramname">$eventSource</td><td>Invoked whenever a step was impressed. </td></tr>
+    <tr><td class="paramtype"><a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a></td><td class="paramname">$eventSource</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -547,12 +578,13 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Optional event. Call this whenever a new step is unloaded (e.g. hidden to be replaced by the next step), preferably without flow-related data in the eventDetails.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">String</td><td class="paramname">$flowName</td><td></td></tr>
     <tr><td class="paramtype">String</td><td class="paramname">$stepName</td><td></td></tr>
     <tr><td class="paramtype">Map</td><td class="paramname">$eventDetails</td><td></td></tr>
-    <tr><td class="paramtype"><a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a></td><td class="paramname">$eventSource</td><td>Invoked whenever a step was unloaded. </td></tr>
+    <tr><td class="paramtype"><a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a></td><td class="paramname">$eventSource</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -595,7 +627,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Invoked whenever a new experience is loaded, or explicitly by the developer when a flow is dismissed. </p>
+<p>Invoked internally whenever a new experience is loaded, or when all flows are abandoned/completed. </p>
 
 <p>Implemented in <a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_omni_log.html#a0eed7ef76a667be2af576277ed18f8e8">OmniLog</a>.</p>
 
@@ -626,10 +658,11 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Sends an Interaction event.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">String</td><td class="paramname">$eventName</td><td>From a list of Interaction Event Names </td></tr>
-    <tr><td class="paramtype"><a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a></td><td class="paramname">$eventSource</td><td>Sends an Interaction event. </td></tr>
+    <tr><td class="paramtype"><a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a></td><td class="paramname">$eventSource</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -675,16 +708,16 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Sends an Outcome event.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">String</td><td class="paramname">$eventName</td><td>From a list of Outcome Event Names </td></tr>
     <tr><td class="paramtype">Map</td><td class="paramname">$eventDetails</td><td>An open-ended map of String to String values (the value may be a JSON blob) </td></tr>
     <tr><td class="paramtype">int</td><td class="paramname">$errorCode</td><td>Send <code>0</code> on success, otherwise include a predefined error code number </td></tr>
-    <tr><td class="paramtype">String</td><td class="paramname">$errorMessage</td><td>Error message, null when successful.</td></tr>
+    <tr><td class="paramtype">String</td><td class="paramname">$errorMessage</td><td>Error message, null when successful. </td></tr>
   </table>
   </dd>
 </dl>
-<p>Sends an Outcome event. </p>
 
 <p>Implemented in <a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_omni_log.html#a4e87e213cfc2c7f100cf57aee293c98d">OmniLog</a>.</p>
 

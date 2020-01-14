@@ -28,7 +28,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="omnilog-tiny.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="omnilog.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">OmniLog
    &#160;<span id="projectnumber">0.1</span>
@@ -142,10 +142,9 @@ Public Member Functions</h2></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Outcome Events</div></td></tr>
 <tr class="memitem:a4e87e213cfc2c7f100cf57aee293c98d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_omni_log.html#a4e87e213cfc2c7f100cf57aee293c98d">sendOutcomeEvent</a> (String $eventName, Map $eventDetails, int $errorCode, String $errorMessage)</td></tr>
 <tr class="separator:a4e87e213cfc2c7f100cf57aee293c98d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Platform Events</div></td></tr>
-<tr><td colspan="2"><div class="groupHeader">Flow Events</div></td></tr>
-<tr><td colspan="2"><div class="groupHeader">UI Interaction Events</div></td></tr>
-<tr><td colspan="2"><div class="groupHeader">Outcome Events</div></td></tr>
+<tr class="inherit_header pub_methods_interfacecom_1_1houzz_1_1omnilog_1_1_logger_i"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_interfacecom_1_1houzz_1_1omnilog_1_1_logger_i')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html">LoggerI</a></td></tr>
+<tr class="memitem:ac33fec744a396408f74bc0d4dc7a03ed inherit pub_methods_interfacecom_1_1houzz_1_1omnilog_1_1_logger_i"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#ac33fec744a396408f74bc0d4dc7a03ed">flowAbandoned</a> ($flowName)</td></tr>
+<tr class="separator:ac33fec744a396408f74bc0d4dc7a03ed inherit pub_methods_interfacecom_1_1houzz_1_1omnilog_1_1_logger_i"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -212,12 +211,10 @@ Private Attributes</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">String</td><td class="paramname">$testName</td><td></td></tr>
-    <tr><td class="paramtype">String</td><td class="paramname">$testVariantId</td><td>Invoked automatically after predefined (30 mins) of inactivity.</td></tr>
+    <tr><td class="paramtype">String</td><td class="paramname">$testVariantId</td><td>Invoked automatically after predefined (30 mins) of inactivity. </td></tr>
   </table>
   </dd>
 </dl>
-<p>Populate the eventData with $testName and $testVariantId.</p>
-<p>Invokes <code>sendPlatformEvent("AB Registered", eventData, eventSource)</code> </p>
 
 <p>Implements <a class="el" href="interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#a45b560be0d31120aea3a8a529e96d3bf">LoggerI</a>.</p>
 
@@ -244,8 +241,6 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<p>Invoked whenever the app started or new Browser Window/tab launched.</p>
-<p>Invokes <code>sendPlatformEvent("App Started", null, eventSource)</code> </p>
 
 <p>Implements <a class="el" href="interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#a9c368279d518e4c04916994a4e0ad1a0">LoggerI</a>.</p>
 
@@ -272,8 +267,6 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<p>Invoked whenever the app stopped (killed) or Browser Window/tab closed.</p>
-<p>Invokes <code>sendPlatformEvent("App Stopped", null, eventSource)</code> </p>
 
 <p>Implements <a class="el" href="interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#a1178cf0d7401212030b7ad4a8ca19816">LoggerI</a>.</p>
 
@@ -310,15 +303,15 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Call experienceLoaded whenever an Experience is loaded (rendered) on the client device and the user can see it.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">RoutingDescriptor</td><td class="paramname">$rd</td><td>A Routing Descriptor </td></tr>
-    <tr><td class="paramtype">Id</td><td class="paramname">$experienceId</td><td>The Experience Id, could be null. </td></tr>
+    <tr><td class="paramtype">Id</td><td class="paramname">$experienceId</td><td>The Experience Id, null by default. This function would generate and Experience Id if one is not provided. It may be useful to pass an Experience Id if one was previously determined and the behavior requires re-loading that same experience. </td></tr>
     <tr><td class="paramtype"><a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a></td><td class="paramname">$eventSource</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<p>Populate the experience fields (experienceName, experienceArguments, product and productVariant) and the experienceId. If the experience id = null, auto-generates one and populate the $experienceId. If the $eventSource has an experienceId, use it to populate the $referrerExperienceId Invokes <code>resetUserFlow()</code> Invokes <code>sendPlatformEvent("Experience Loaded", null, eventSource)</code> </p>
 
 <p>Implements <a class="el" href="interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#a862e17753a60fc1c9052b0ee1feea938">LoggerI</a>.</p>
 
@@ -355,6 +348,8 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Call experienceLoaded whenever an Experience is removed from the client device to make way for the next experience.</p>
+<p>Calling this function is optional, and is meant to serve two purposes: recording the time spent on the experience, and which element on the page was engaged, thus unloading it.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">RoutingDescriptor</td><td class="paramname">$rd</td><td>A Routing Descriptor </td></tr>
@@ -363,7 +358,6 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<p>Invokes <code>sendPlatformEvent("Experience Unloaded", null, eventSource)</code> </p>
 
 <p>Implements <a class="el" href="interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#ae6f4af19fa1a547c6a86056807a37864">LoggerI</a>.</p>
 
@@ -400,6 +394,8 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Call this at the end of a Flow, when the flow is positively concluded and completed and there are no more activities (either UI interactions, Ajax/Restful calls or other events) related to the flow.</p>
+<p>Aborting or bouncing back from a flow does not trigger this event. Use flowAbandoned instead.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">String</td><td class="paramname">$flowName</td><td></td></tr>
@@ -408,9 +404,6 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<p>If the flowNames stack is empty, set userFlowStep to 0.</p>
-<p>Removes the flowName from the $flowNames stack.</p>
-<p>Invokes <code>sendFlowEvent($flowName + " - Ended", null, eventSource)</code> </p>
 
 <p>Implements <a class="el" href="interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#a71ab363145796920888937facc68fef9">LoggerI</a>.</p>
 
@@ -447,6 +440,8 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Call this as soon as the user instantiates the flow, e.g. when they click the button to open a dialog/screen, or if they engage by focusing on a popup.</p>
+<p>This event is useful for sending extra flow-related data in the eventDetails.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">String</td><td class="paramname">$flowName</td><td></td></tr>
@@ -455,7 +450,6 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<p>Generate a new userFlowId If the flowNames stack is empty, set userFlowStep to 0 Adds the flowName to the $flowNames stack Invokes <code>sendFlowEvent($flowName + " - Started", null, eventSource)</code> </p>
 
 <p>Implements <a class="el" href="interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#a26a0de26db6da8acf77e3e1585c7ea63">LoggerI</a>.</p>
 
@@ -498,6 +492,9 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Call this when the user positively completes filling up the inputs of the current step, and intentionally wishes to move forward.</p>
+<p>Going back to a previous step or to dismiss the flow entirely is NOT a positive completion of the step.</p>
+<p>This event is useful for sending extra flow-related data in the eventDetails.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">String</td><td class="paramname">$flowName</td><td></td></tr>
@@ -507,8 +504,6 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<p>Invoked whenever a step was completed, and sends extra data about the step.</p>
-<p>Invokes <code>sendFlowEvent($flowName + " - " $flowStep + " Completed", $eventDetails, eventSource)</code> </p>
 
 <p>Implements <a class="el" href="interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#abc377d6d1e5e310e8c520fc92b048a69">LoggerI</a>.</p>
 
@@ -551,6 +546,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Optional event. Call this whenever a new step is loaded (e.g. shows up), preferably without flow-related data in the eventDetails.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">String</td><td class="paramname">$flowName</td><td></td></tr>
@@ -560,9 +556,6 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<p>Invoked whenever a step was impressed.</p>
-<p>Increases the internal flowStepId.</p>
-<p>Invokes <code>sendFlowEvent($flowName + " - " $flowStep + " Loaded", null, eventSource)</code> </p>
 
 <p>Implements <a class="el" href="interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#a6ff5647a1cdef505bf0dd3a9432bf6db">LoggerI</a>.</p>
 
@@ -605,6 +598,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Optional event. Call this whenever a new step is unloaded (e.g. hidden to be replaced by the next step), preferably without flow-related data in the eventDetails.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">String</td><td class="paramname">$flowName</td><td></td></tr>
@@ -614,9 +608,6 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<p>Invoked whenever a step was impressed.</p>
-<p>Increases the internal flowStepId.</p>
-<p>Invokes <code>sendFlowEvent($flowName + " - " $flowStep + " Unloaded", null, eventSource)</code> </p>
 
 <p>Implements <a class="el" href="interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#a96b242a4471ec0e1e070045eafe9ece7">LoggerI</a>.</p>
 
@@ -636,8 +627,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Invoked periodically (default = 60s) as long as the user is interacting with the application.</p>
-<p>Invokes <code>sendPlatformEvent("Heartbeat", eventData, eventSource)</code> </p>
+<p>Invoked periodically (default = 60s) as long as the user is interacting with the application. </p>
 
 <p>Implements <a class="el" href="interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#aed38ad4eb47e5725f1a5972264a4b85a">LoggerI</a>.</p>
 
@@ -657,8 +647,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Reset the internal $flowNames list.</p>
-<p>Invoked whenever a new experience is loaded, or explicitly by the developer when a flow is dismissed. </p>
+<p>Invoked internally whenever a new experience is loaded, or when all flows are abandoned/completed. </p>
 
 <p>Implements <a class="el" href="interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#a0eed7ef76a667be2af576277ed18f8e8">LoggerI</a>.</p>
 
@@ -709,6 +698,12 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Incorporate all the inputs along with the contextual data and construct the final event.</p>
+<p>Specifically:</p><ul>
+<li>Generate an Event ID and Timestamp</li>
+<li>invoker = <a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a> == null ? <code>Application</code> : <code>User</code></li>
+<li>location = <code>Client</code> on all client-based events</li>
+</ul>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">String</td><td class="paramname">$eventName</td><td>From a list of enumerated and agreed-upon list of event names </td></tr>
@@ -718,12 +713,6 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<p>Incorporate all the inputs along with the contextual data and construct the final event.</p>
-<p>Specifically:</p><ul>
-<li>Generate an Event ID and Timestamp</li>
-<li>invoker = <a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a> == null ? <code>Application</code> : <code>User</code></li>
-<li>location = <code>Client</code> on all client-based events </li>
-</ul>
 
 </div>
 </div>
@@ -809,6 +798,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Sends an Interaction event.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">String</td><td class="paramname">$eventName</td><td>From a list of Interaction Event Names </td></tr>
@@ -816,13 +806,6 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<p>Send an Interaction event.</p>
-<p>Incorporate the following into the $additionalFields argument:</p><ul>
-<li>$flowName</li>
-<li>$flowId</li>
-<li>$flowStep</li>
-</ul>
-<p>Invokes <code>sendEvent ($eventName, null, $eventSource, $additionalFields)</code> </p>
 
 <p>Implements <a class="el" href="interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#ad103549fbae18fe17ccdd4d4c4f37c6a">LoggerI</a>.</p>
 
@@ -865,17 +848,16 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Sends an Outcome event.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">String</td><td class="paramname">$eventName</td><td>From a list of Outcome Event Names </td></tr>
     <tr><td class="paramtype">Map</td><td class="paramname">$eventDetails</td><td>An open-ended map of String to String values (the value may be a JSON blob) </td></tr>
     <tr><td class="paramtype">int</td><td class="paramname">$errorCode</td><td>Send <code>0</code> on success, otherwise include a predefined error code number </td></tr>
-    <tr><td class="paramtype">String</td><td class="paramname">$errorMessage</td><td>Error message, null when successful.</td></tr>
+    <tr><td class="paramtype">String</td><td class="paramname">$errorMessage</td><td>Error message, null when successful. </td></tr>
   </table>
   </dd>
 </dl>
-<p>Send an Outcome event.</p>
-<p>Invokes <code>sendEvent ($eventName, null, $eventSource, $additionalFields)</code> </p>
 
 <p>Implements <a class="el" href="interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#a4e87e213cfc2c7f100cf57aee293c98d">LoggerI</a>.</p>
 
@@ -947,8 +929,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Invoked automatically after predefined (default = 30m) of inactivity.</p>
-<p>Invokes <code>sendPlatformEvent("Session Ended")</code> </p>
+<p>Invoked automatically after predefined (default = 30m) of inactivity. </p>
 
 <p>Implements <a class="el" href="interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#a9bbedec7be518e799887b44067422f04">LoggerI</a>.</p>
 
@@ -968,8 +949,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Invoked automatically if a session is not previously active, or if a new experience comes from a new channel.</p>
-<p>Invokes <code>sendPlatformEvent("Session Started")</code> </p>
+<p>Invoked automatically if a session is not previously active, or if a new experience comes from a new channel. </p>
 
 <p>Implements <a class="el" href="interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#acb95b4e26fd3b893741530d5698ca302">LoggerI</a>.</p>
 
