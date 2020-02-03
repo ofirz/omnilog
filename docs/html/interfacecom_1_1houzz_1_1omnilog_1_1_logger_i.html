@@ -139,6 +139,8 @@ Public Member Functions</h2></td></tr>
 <tr><td colspan="2"><div class="groupHeader">UI Interaction Events</div></td></tr>
 <tr class="memitem:ad103549fbae18fe17ccdd4d4c4f37c6a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#ad103549fbae18fe17ccdd4d4c4f37c6a">sendInteractionEvent</a> (String $eventName, <a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a> $eventSource)</td></tr>
 <tr class="separator:ad103549fbae18fe17ccdd4d4c4f37c6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b73146a1133eba0860105650679f279"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#a3b73146a1133eba0860105650679f279">sendUserError</a> (String $eventName, Map $eventDetails, <a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a> $eventSource)</td></tr>
+<tr class="separator:a3b73146a1133eba0860105650679f279"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Outcome Events</div></td></tr>
 <tr class="memitem:a4e87e213cfc2c7f100cf57aee293c98d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#a4e87e213cfc2c7f100cf57aee293c98d">sendOutcomeEvent</a> (String $eventName, Map $eventDetails, int $errorCode, String $errorMessage)</td></tr>
 <tr class="separator:a4e87e213cfc2c7f100cf57aee293c98d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -720,6 +722,51 @@ Public Member Functions</h2></td></tr>
 </dl>
 
 <p>Implemented in <a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_omni_log.html#a4e87e213cfc2c7f100cf57aee293c98d">OmniLog</a>.</p>
+
+</div>
+</div>
+<a id="a3b73146a1133eba0860105650679f279"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b73146a1133eba0860105650679f279">&#9670;&nbsp;</a></span>sendUserError()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sendUserError </td>
+          <td>(</td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>$eventName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Map&#160;</td>
+          <td class="paramname"><em>$eventDetails</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a>&#160;</td>
+          <td class="paramname"><em>$eventSource</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sends an User Error event. User errors occur on the client side and typically follow an on-screen warning, such as when a password is not repeated correctly, a mandatory input field is missing, etc.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">String</td><td class="paramname">$eventName</td><td>From a list of User Error Event Names </td></tr>
+    <tr><td class="paramtype">Map</td><td class="paramname">$eventDetails</td><td>An open-ended map of String to String values (the value may be a JSON blob) </td></tr>
+    <tr><td class="paramtype"><a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_event_source.html">EventSource</a></td><td class="paramname">$eventSource</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="classcom_1_1houzz_1_1omnilog_1_1_omni_log.html#a3b73146a1133eba0860105650679f279">OmniLog</a>.</p>
 
 </div>
 </div>

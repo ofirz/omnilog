@@ -15,6 +15,7 @@ var interfacecom_1_1houzz_1_1omnilog_1_1_logger_i =
     [ "resetFlows", "interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#a0eed7ef76a667be2af576277ed18f8e8", null ],
     [ "sendInteractionEvent", "interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#ad103549fbae18fe17ccdd4d4c4f37c6a", null ],
     [ "sendOutcomeEvent", "interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#a4e87e213cfc2c7f100cf57aee293c98d", null ],
+    [ "sendUserError", "interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#a3b73146a1133eba0860105650679f279", null ],
     [ "sessionEnded", "interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#a9bbedec7be518e799887b44067422f04", null ],
     [ "sessionStarted", "interfacecom_1_1houzz_1_1omnilog_1_1_logger_i.html#acb95b4e26fd3b893741530d5698ca302", null ]
 ];

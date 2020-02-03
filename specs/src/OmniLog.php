@@ -156,7 +156,10 @@ class OmniLog implements LoggerI
     
 ///@{ \name UI Interaction Events
 
-    public void function sendInteractionEvent(String $eventName, EventSource $eventSource) {};
+    public void function sendInteractionEvent(String $eventName, EventSource $eventSource) {}
+    
+    public void function sendUserError(String $eventName, Map $eventDetails, EventSource $eventSource) {}
+    
 ///@}
 //
 ///@{ \name Outcome Events

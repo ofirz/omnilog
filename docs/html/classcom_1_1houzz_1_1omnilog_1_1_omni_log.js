@@ -17,6 +17,7 @@ var classcom_1_1houzz_1_1omnilog_1_1_omni_log =
     [ "sendInteractionEvent", "classcom_1_1houzz_1_1omnilog_1_1_omni_log.html#ad103549fbae18fe17ccdd4d4c4f37c6a", null ],
     [ "sendOutcomeEvent", "classcom_1_1houzz_1_1omnilog_1_1_omni_log.html#a4e87e213cfc2c7f100cf57aee293c98d", null ],
     [ "sendPlatformEvent", "classcom_1_1houzz_1_1omnilog_1_1_omni_log.html#aa34ca28ec5ac107602c1ae177af74dc3", null ],
+    [ "sendUserError", "classcom_1_1houzz_1_1omnilog_1_1_omni_log.html#a3b73146a1133eba0860105650679f279", null ],
     [ "sessionEnded", "classcom_1_1houzz_1_1omnilog_1_1_omni_log.html#a9bbedec7be518e799887b44067422f04", null ],
     [ "sessionStarted", "classcom_1_1houzz_1_1omnilog_1_1_omni_log.html#acb95b4e26fd3b893741530d5698ca302", null ],
     [ "$experienceArguments", "classcom_1_1houzz_1_1omnilog_1_1_omni_log.html#a9523f1a4f5481b34335be9400a7b253b", null ],

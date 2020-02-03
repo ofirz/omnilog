@@ -157,6 +157,18 @@ interface LoggerI
      * @param EventSource $eventSource
      */
     public void function sendInteractionEvent(String $eventName, EventSource $eventSource) ;
+        
+    /**
+     * Sends an User Error event.
+     * User errors occur on the client side and typically follow an on-screen warning, such as when
+     * a password is not repeated correctly, a mandatory input field is missing, etc.
+     * 
+     * @param String $eventName From a list of User Error Event Names
+     * @param Map $eventDetails An open-ended map of String to String values (the value may be a JSON blob)
+     * @param EventSource $eventSource
+     */
+    public void function sendUserError(String $eventName, Map $eventDetails, EventSource $eventSource) ;
+    
 ///@}
 //
 ///@{ \name Outcome Events
